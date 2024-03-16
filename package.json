@@ -1,19 +1,27 @@
 {
   "name": "frontend-vk",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Eduard Plechkens <work@plechkens.com>",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "deploy": "vite build && vk-miniapps-deploy",
+    "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "deploy": "vite build && vk-miniapps-deploy"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.28.4",
+    "@vkontakte/icons": "^2.103.0",
+    "@vkontakte/vk-bridge": "^2.14.1",
+    "@vkontakte/vk-mini-apps-router": "^1.4.3",
+    "@vkontakte/vkui": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.28.4",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

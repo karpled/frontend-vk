@@ -1,0 +1,11 @@
+{
+  "endOfLine": "lf",
+  "experimentalTernaries": true,
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrder": ["<THIRD_PARTY_MODULES>", "^~(.*)$", "^~/(.*)$", "^[./]"]
+}

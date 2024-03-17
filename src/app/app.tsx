@@ -1,3 +1,4 @@
+import bridge from "@vkontakte/vk-bridge"
 import {
   useActiveVkuiLocation,
   useRouteNavigator,
@@ -15,6 +16,8 @@ import { CatFactPage } from "~/pages/cat-fact/index.js"
 import { HomePage } from "~/pages/home/index.js"
 
 import { DEFAULT_PANEL, routes } from "./router.js"
+
+bridge.send("VKWebAppInit")
 
 export const App = (): React.ReactElement => {
   const { panel: activePanel = DEFAULT_PANEL } = useActiveVkuiLocation()

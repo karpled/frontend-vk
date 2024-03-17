@@ -1,26 +1,14 @@
-import React, { useEffect } from "react"
+import React from "react"
 
-import { useQuery } from "@tanstack/react-query"
 import { Button, FormItem, Group, Textarea } from "@vkontakte/vkui"
 
-import { getFact } from "~/entities/cat-fact/api/getFact.js"
+import { useFocusOnFetch, useGetCatFact } from "~/entities/cat-fact/index.js"
 
 export const CatFactForm = (): React.ReactElement => {
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
 
-  const { data, isFetching, isError, refetch } = useQuery({
-    queryKey: ["cat-fact"],
-    queryFn: async () => await getFact(),
-    enabled: false,
-  })
-
-  useEffect(() => {
-    if (data && inputRef.current) {
-      const firstWord = inputRef.current.value.split(" ")[0]
-      inputRef.current.focus()
-      inputRef.current.setSelectionRange(firstWord.length, firstWord.length)
-    }
-  }, [data])
+  const { data, isFetching, isError, refetch } = useGetCatFact()
+  useFocusOnFetch(inputRef, data)
 
   const handleClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -42,7 +30,7 @@ export const CatFactForm = (): React.ReactElement => {
           />
         </FormItem>
         <FormItem>
-          <Button type="submit" size="l" stretched>
+          <Button loading={isFetching} type="submit" size="l" stretched>
             Получить факт
           </Button>
         </FormItem>

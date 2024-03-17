@@ -1,1 +1,2 @@
-export * from "./nameInput.ui.js"
+export * from "./NameInput.ui.js"
+export * from "./AgeBanner.ui.js"

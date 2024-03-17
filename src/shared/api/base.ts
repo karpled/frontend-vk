@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 
+import { API_AGIFY, API_CATFACT_NINJA } from "../config/index.js"
+
 export class ApiClient {
   private baseUrl: string
 
@@ -26,5 +28,5 @@ export class ApiClient {
   }
 }
 
-export const catFactNinjaClient = new ApiClient("https://catfact.ninja")
-export const agifyClient = new ApiClient("https://api.agify.io")
+export const catFactNinjaClient = new ApiClient(API_CATFACT_NINJA)
+export const agifyClient = new ApiClient(API_AGIFY)

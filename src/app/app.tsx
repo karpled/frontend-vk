@@ -1,4 +1,7 @@
-import { useActiveVkuiLocation } from "@vkontakte/vk-mini-apps-router"
+import {
+  useActiveVkuiLocation,
+  useRouteNavigator,
+} from "@vkontakte/vk-mini-apps-router"
 import {
   PanelHeader,
   SplitCol,
@@ -15,7 +18,9 @@ import { DEFAULT_PANEL, routes } from "./router.js"
 
 export const App = (): React.ReactElement => {
   const { panel: activePanel = DEFAULT_PANEL } = useActiveVkuiLocation()
+
   const platform = usePlatform()
+  const navigator = useRouteNavigator()
 
   return (
     <SplitLayout
@@ -25,6 +30,7 @@ export const App = (): React.ReactElement => {
         <View
           nav={routes.default_root.default_view.home_panel.id}
           activePanel={activePanel}
+          onSwipeBack={() => navigator.back()}
         >
           <HomePage nav={routes.default_root.default_view.home_panel.id} />
           <CatFactPage

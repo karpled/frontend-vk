@@ -17,13 +17,15 @@ export class ApiClient {
     }
   }
 
-  async get<T>(url: string): Promise<T> {
-    const response = await axios.get<T>(`${this.baseUrl}${url}`)
-    return this.handleResponse(response)
-  }
-
-  async post<T>(url: string, data: unknown): Promise<T> {
-    const response = await axios.post<T>(`${this.baseUrl}${url}`, data)
+  async get<T>(
+    url: string,
+    params?: { [key: string]: string },
+    signal?: AbortSignal,
+  ): Promise<T> {
+    const response = await axios.get<T>(`${this.baseUrl}${url}`, {
+      params,
+      signal,
+    })
     return this.handleResponse(response)
   }
 }

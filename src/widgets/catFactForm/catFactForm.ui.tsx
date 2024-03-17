@@ -31,7 +31,7 @@ export const CatFactForm = (): React.ReactElement => {
     <Group>
       <form onSubmit={handleClick}>
         <FormItem
-          status={isError ? "error" : undefined}
+          status={isError ? "error" : "default"}
           bottom={isError ? "Не удалось загрузить факт" : undefined}
         >
           <Textarea

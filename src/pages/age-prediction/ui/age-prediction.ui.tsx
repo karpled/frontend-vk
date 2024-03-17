@@ -1,5 +1,6 @@
-import { Group, NavIdProps, Panel, PanelHeader } from "@vkontakte/vkui"
+import { NavIdProps, Panel, PanelHeader } from "@vkontakte/vkui"
 
+import { AgePredictionForm } from "~/widgets/agePredictionForm/index.js"
 import { PanelBackButton } from "~/widgets/panelBackButton/index.js"
 
 type AgePredictionPageProps = NavIdProps
@@ -12,7 +13,7 @@ export const AgePredictionPage = (
       <PanelHeader before={<PanelBackButton previousPath="/" />}>
         Угадайка возраста
       </PanelHeader>
-      <Group>Возраст</Group>
+      <AgePredictionForm />
     </Panel>
   )
 }
